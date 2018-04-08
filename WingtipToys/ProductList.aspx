@@ -45,22 +45,22 @@
             <table>
               <tr>
                 <td>
-                  <a href="ProductDetails.aspx?productId=<%#: Item.ProductId %>">
+                  <a href="<%#: GetRouteUrl("ProductByNameRoute", new { productName = Item.ProductName }) %>">
                     <img src="/Catalog/Images/Thumbs/<%#: Item.ImagePath %>" width="100" height="75" style="border: solid;" />
                   </a>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <a href="ProductDetails.aspx?productId=<%#: Item.ProductId %>">
-                    <span><%#: Item.ProductName %></span>
+                  <a href="<%#: GetRouteUrl("ProductByNameRoute", new { productName = Item.ProductName }) %>">
+                    <%#: Item.ProductName %>
                   </a>
                   <br />
                   <span>
                     <b>Price: </b><%#: string.Format("{0:c2}", Item.UnitPrice) %>
                   </span>
                   <br />
-                  <a href="AddToCart.aspx?productId=<%#: Item.ProductId %>">
+                  <a href="/AddToCart.aspx?productId=<%#: Item.ProductId %>">
                     <span class="ProductListItem"><b>Add to Cart</b></span>
                   </a>
                 </td>

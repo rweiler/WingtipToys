@@ -59,15 +59,13 @@ namespace WingtipToys.Admin {
 		}
 
 		public IQueryable GetCategories() {
-			using (var _db = new ProductContext()) {
-				return _db.Categories;
-			}
+			var _db = new ProductContext();
+			return _db.Categories;
 		}
 
 		public IQueryable GetProducts() {
-			using (var _db = new ProductContext()) {
-				return _db.Products;
-			}
+			var _db = new ProductContext();
+			return _db.Products;
 		}
 
 		protected void RemoveProductButton_Click(object sender, EventArgs e) {

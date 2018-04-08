@@ -36,6 +36,29 @@ namespace WingtipToys.Logic {
 			_db.SaveChanges();
 		}
 
+		public void AddToCart(string productName) {
+			// Retrieve the product from the database
+			ShoppingCartId = GetCartId();
+
+			var cartItem = _db.ShoppingCartItems.SingleOrDefault(c => c.CartId == ShoppingCartId && c.Product.ProductName == productName);
+			if (cartItem == null) {
+				// Create a new cart item if no cart item exists
+				cartItem = new CartItem {
+					ItemId = Guid.NewGuid().ToString(),
+					Product = _db.Products.SingleOrDefault(p => p.ProductName == productName),
+					ProductId = (_db.Products.SingleOrDefault(p => p.ProductName == productName)).ProductId,
+					CartId = ShoppingCartId,
+					Quantity = 1,
+					DateCreated = DateTime.Now
+				};
+				_db.ShoppingCartItems.Add(cartItem);
+			} else {
+				// If the item does exist in the cart, then add one to the quantity
+				cartItem.Quantity++;
+			}
+			_db.SaveChanges();
+		}
+
 		public string GetCartId() {
 			if (HttpContext.Current.Session[CartSessionKey] == null) {
 				if (!string.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name)) {

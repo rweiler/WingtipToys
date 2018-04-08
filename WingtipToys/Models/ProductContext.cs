@@ -6,7 +6,9 @@ namespace WingtipToys.Models {
 		public ProductContext() : base("WingtipToys") {
 		}
 
-		public static 
+		public static ProductContext Create() {
+			return new ProductContext();
+		}
 
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Product> Products { get; set; }

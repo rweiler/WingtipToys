@@ -84,7 +84,8 @@
       <asp:ListView ID="categoryList" runat="server" ItemType="WingtipToys.Models.Category"  SelectMethod="GetCategories">
         <ItemTemplate>
           <b style="font-size: large; font-style: normal">
-            <a href="/ProductList.aspx?id=<%#: Item.CategoryId %>"><%#: Item.CategoryName %></a>
+            <%--<a href="/ProductList.aspx?id=<%#: Item.CategoryId %>"><%#: Item.CategoryName %></a>--%>
+            <a href="<%#: GetRouteUrl("ProductsByCategoryRoute", new { categoryName = Item.CategoryName }) %>"><%#: Item.CategoryName %></a>
           </b>
         </ItemTemplate>
         <ItemSeparatorTemplate> | </ItemSeparatorTemplate>
