@@ -13,6 +13,10 @@ namespace WingtipToys.Models {
 		[Display(Name = "Category Description")]
 		public string Description { get; set; }
 
+		[Required]
+		public int SortOrder { get; set; }
+
+
 		// Navigation Properties
 		public virtual ICollection<Product> Products { get; set; }
 	}

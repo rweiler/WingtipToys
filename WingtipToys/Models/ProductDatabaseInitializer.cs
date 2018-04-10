@@ -6,163 +6,160 @@ namespace WingtipToys.Models {
 	public class ProductDatabaseInitializer : DropCreateDatabaseIfModelChanges<ProductContext> {
 		protected override void Seed(ProductContext context) {
 			GetCategories().ForEach(c => context.Categories.AddOrUpdate(c));
+			GetProductOptions().ForEach(p => context.ProductOptions.AddOrUpdate(p));
+			GetProductOptionItems().ForEach(i => context.ProductOptionItems.AddOrUpdate(i));
 			GetProducts().ForEach(p => context.Products.AddOrUpdate(p));
 		}
 
 		private static List<Category> GetCategories() {
 			var categories = new List<Category> {
-				new Category {
-					CategoryId=1,
-					CategoryName="Cars"
-				},
-				new Category {
-					CategoryId=2,
-					CategoryName="Planes"
-				},
-				new Category {
-					CategoryId=3,
-					CategoryName="Trucks"
-				},
-				new Category {
-					CategoryId=4,
-					CategoryName="Boats"
-				},
-				new Category {
-					CategoryId=5,
-					CategoryName="Rockets"
-				}
+				new Category { CategoryId=1, CategoryName="Cars", SortOrder=1 },
+				new Category { CategoryId=2, CategoryName="Planes", SortOrder=2 },
+				new Category { CategoryId=3, CategoryName="Trucks", SortOrder=3 },
+				new Category { CategoryId=4, CategoryName="Boats", SortOrder=4 },
+				new Category { CategoryId=5, CategoryName="Rockets", SortOrder=5 }
 			};
 			return categories;
+		}
+
+		private static List<ProductOption> GetProductOptions() {
+			var productOptions = new List<ProductOption> {
+				new ProductOption { ProductOptionId=1,	Name="Colour", SortOrder=1 },
+				new ProductOption { ProductOptionId=2,	Name="Scale", SortOrder=2}
+			};
+			return productOptions;
+		}
+
+		private static List<ProductOptionItem> GetProductOptionItems() {
+			var productOptionItems = new List<ProductOptionItem> {
+				new ProductOptionItem { Name="Red", ProductOptionId=1, SortOrder=1 },
+				new ProductOptionItem { Name="Green", ProductOptionId=1, SortOrder=2 },
+				new ProductOptionItem { Name="Blue", ProductOptionId=1, SortOrder=3 },
+				new ProductOptionItem { Name="Black", ProductOptionId=1, SortOrder=4 },
+				new ProductOptionItem { Name="Orange", ProductOptionId=1, SortOrder=5 },
+
+				new ProductOptionItem { Name="G", ProductOptionId=2, SortOrder=6 },
+				new ProductOptionItem { Name="S", ProductOptionId=2, SortOrder=7 },
+				new ProductOptionItem { Name="O", ProductOptionId=2, SortOrder=8 },
+				new ProductOptionItem { Name="HO", ProductOptionId=2, SortOrder=9 },
+				new ProductOptionItem { Name="N", ProductOptionId=2, SortOrder=10 },
+				new ProductOptionItem { Name="Z", ProductOptionId=2, SortOrder=11 }
+			};
+			return productOptionItems;
 		}
 
 		private static List<Product> GetProducts() {
 			var products = new List<Product> {
 				new Product {
-					ProductId=1,
-					ProductName="Convertible Car",
+					Name="Convertible Car",
 					Description="This convertible car is fast! The engine is powered by a neutrino based battery (not included). Power it up and let it go!",
 					ImagePath="carconvert.png",
-					UnitPrice=22.50,
+					UnitPrice=22.50m,
 					CategoryId=1
 				},
 				new Product {
-					ProductId=2,
-					ProductName="Old-time Car",
+					Name="Old-time Car",
 					Description="There's nothing old about this toy car, except it's looks. Compatible with other old toy cars.",
 					ImagePath="carearly.png",
-					UnitPrice=15.95,
+					UnitPrice=15.95m,
 					CategoryId=1
 				},
 				new Product {
-					ProductId=3,
-					ProductName="Fast Car",
+					Name="Fast Car",
 					Description="Yes this car is fast, but it also floats in water.",
 					ImagePath="carfast.png",
-					UnitPrice=32.99,
+					UnitPrice=32.99m,
 					CategoryId=1
 				},
 				new Product {
-					ProductId=4,
-					ProductName="Super Fast Car",
+					Name="Super Fast Car",
 					Description="Use this super fast car to entertain guests. Lights and doors work!",
 					ImagePath="carfaster.png",
-					UnitPrice=8.95,
+					UnitPrice=8.95m,
 					CategoryId=1
 				},
 				new Product {
-					ProductId=5,
-					ProductName="Old Style Racer",
+					Name="Old Style Racer",
 					Description="This old style racer can fly (with user assistance). Gravity controls flight duration. No batteries required.",
 					ImagePath="carracer.png",
-					UnitPrice=34.95,
+					UnitPrice=34.95m,
 					CategoryId=1
 				},
 				new Product {
-					ProductId=6,
-					ProductName="Ace Plane",
+					Name="Ace Plane",
 					Description="Authentic airplane toy. Features realistic color and details.",
 					ImagePath="planeace.png",
-					UnitPrice=95.00,
+					UnitPrice=95.00m,
 					CategoryId=2
 				},
 				new Product {
-					ProductId=7,
-					ProductName="Glider",
+					Name="Glider",
 					Description="This fun glider is made from real balsa wood. Some assembly required.",
 					ImagePath="planeglider.png",
-					UnitPrice=4.95,
+					UnitPrice=4.95m,
 					CategoryId=2
 				},
 				new Product {
-					ProductId=8,
-					ProductName="Paper Plane",
+					Name="Paper Plane",
 					Description="This paper plane is like no other paper plane. Some folding required.",
 					ImagePath="planepaper.png",
-					UnitPrice=2.95,
+					UnitPrice=2.95m,
 					CategoryId=2
 				},
 				new Product {
-					ProductId=9,
-					ProductName="Propeller Plane",
+					Name="Propeller Plane",
 					Description="Rubber band powered plane features two wheels.",
 					ImagePath="planeprop.png",
-					UnitPrice=32.95,
+					UnitPrice=32.95m,
 					CategoryId=2
 				},
 				new Product {
-					ProductId=10,
-					ProductName="Early Truck",
+					Name="Early Truck",
 					Description="This toy truck has a real gas powered engine. Requires regular tune ups.",
 					ImagePath="truckearly.png",
-					UnitPrice=15.00,
+					UnitPrice=15.00m,
 					CategoryId=3
 				},
 				new Product {
-					ProductId=11,
-					ProductName="Fire Truck",
+					Name="Fire Truck",
 					Description="You will have endless fun with this one quarter sized fire truck.",
 					ImagePath="truckfire.png",
-					UnitPrice=26.00,
+					UnitPrice=26.00m,
 					CategoryId=3
 				},
 				new Product {
-					ProductId=12,
-					ProductName="Big Truck",
+					Name="Big Truck",
 					Description="This fun toy truck can be used to tow other trucks that are not as big.",
 					ImagePath="truckbig.png",
-					UnitPrice=29.00,
+					UnitPrice=29.00m,
 					CategoryId=3
 				},
 				new Product {
-					ProductId=13,
-					ProductName="Big Ship",
+					Name="Big Ship",
 					Description="Is it a boat or a ship. Let this floating vehicle decide by using its artifically intelligent computer brain!",
 					ImagePath="boatbig.png",
-					UnitPrice=95.00,
+					UnitPrice=95.00m,
 					CategoryId=4,
 				},
 				new Product {
-					ProductId=14,
-					ProductName="Paper Boat",
+					Name="Paper Boat",
 					Description="Floating fun for all! This toy boat can be assembled in seconds. Floats for minutes! Some folding required.",
 					ImagePath="boatpaper.png",
-					UnitPrice=4.95,
+					UnitPrice=4.95m,
 					CategoryId=4
 				},
 				new Product {
-					ProductId=15,
-					ProductName="Sail Boat",
+					Name="Sail Boat",
 					Description="Put this fun toy sail boat in the water and let it go!",
 					ImagePath="boatsail.png",
-					UnitPrice=42.95,
+					UnitPrice=42.95m,
 					CategoryId=4
 				},
 				new Product {
-					ProductId=16,
-					ProductName="Rocket",
+					Name="Rocket",
 					Description="This fun rocket will travel up to a height of 200 feet.",
 					ImagePath="rocket.png",
-					UnitPrice=122.95,
+					UnitPrice=122.95m,
 					CategoryId=5
 				}
 			};

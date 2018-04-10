@@ -50,7 +50,13 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a id="adminLink" runat="server" href="~/Admin/AdminPage" visible="false">Admin</a></li>
+            <li id="liAdmin" runat="server" class="dropdown" visible="false">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a runat="server" href="~/Admin/Products">Product Maintenance</a></li>
+                <li><a runat="server" href="~/Admin/AdminPage">Wingtip Toys Product Admin</a></li>
+              </ul>
+            </li>
             <li><a runat="server" href="~/">Home</a></li>
             <li><a runat="server" href="~/About">About</a></li>
             <li><a runat="server" href="~/Contact">Contact</a></li>

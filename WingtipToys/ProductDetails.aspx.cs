@@ -14,7 +14,7 @@ namespace WingtipToys {
 			if (productId.HasValue && productId > 0) {
 				query = query.Where(p => p.ProductId == productId);
 			} else if (!string.IsNullOrEmpty(productName)) {
-				query = query.Where(p => string.Compare(p.ProductName, productName) == 0);
+				query = query.Where(p => string.Compare(p.Name, productName) == 0);
 			} else {
 				query = null;
 			}

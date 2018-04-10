@@ -66,7 +66,7 @@ namespace WingtipToys.Logic {
 				var myOrderList = myCartOrders.GetCartItems();
 
 				for (int i = 0; i < myOrderList.Count; i++) {
-					encoder[$"L_PAYMENTREQUEST_0_NAME{i}"] = myOrderList[i].Product.ProductName;
+					encoder[$"L_PAYMENTREQUEST_0_NAME{i}"] = myOrderList[i].Product.Name;
 					encoder[$"L_PAYMENTREQUEST_0_AMT{i}"] = myOrderList[i].Product.UnitPrice.ToString();
 					encoder[$"L_PAYMENTREQUEST_0_QTY{i}"] = myOrderList[i].Quantity.ToString();
 				}

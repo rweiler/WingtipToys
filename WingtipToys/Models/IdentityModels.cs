@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using WingtipToys.Models;
 
 namespace WingtipToys.Models {
 	// You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -17,6 +20,16 @@ namespace WingtipToys.Models {
 
 		public Task<ClaimsIdentity> GenerateUserIdentityAsync(ApplicationUserManager manager) {
 			return Task.FromResult(GenerateUserIdentity(manager));
+		}
+	}
+
+	public class ApplicationDbContext : IdentityDbContext<ApplicationUser> {
+		public ApplicationDbContext()
+				: base("WingtipToys", throwIfV1Schema: false) {
+		}
+
+		public static ApplicationDbContext Create() {
+			return new ApplicationDbContext();
 		}
 	}
 }

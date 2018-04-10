@@ -4,13 +4,13 @@
   <asp:FormView ID="productDetail" runat="server" ItemType="WingtipToys.Models.Product" SelectMethod="GetProduct" RenderOuterTable="false">
     <ItemTemplate>
       <div>
-        <h1><%#: Item.ProductName %></h1>
+        <h1><%#: Item.Name %></h1>
       </div>
       <br />
       <table>
         <tr>
           <td>
-            <img src="/Catalog/Images/<%#: Item.ImagePath %>" style="border: solid; height: 300px;" alt="<%# Item.ProductName %>" />
+            <img src="/Catalog/Images/<%#: Item.ImagePath %>" style="border: solid; height: 300px;" alt="<%# Item.Name %>" />
           </td>
           <td>&nbsp;</td>
           <td style="vertical-align: top; text-align: left;">

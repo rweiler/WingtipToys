@@ -6,7 +6,7 @@
   <asp:GridView ID="CartList" runat="server" CssClass="table table-striped table-bordered" ItemType="WingtipToys.Models.CartItem" SelectMethod="GetShoppingCartItems" AutoGenerateColumns="false" ShowFooter="true" GridLines="Vertical" CellPadding="4">
     <Columns>
       <asp:BoundField DataField="ProductId" HeaderText="Id" SortExpression="ProductId" />
-      <asp:BoundField DataField="Product.ProductName" HeaderText="Name" />
+      <asp:BoundField DataField="Product.Name" HeaderText="Name" />
       <asp:BoundField DataField="Product.UnitPrice" HeaderText="Price (each)" DataFormatString="{0:c2}" />
       <asp:TemplateField HeaderText="Quantity">
         <ItemTemplate>

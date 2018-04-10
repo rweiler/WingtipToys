@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using WingtipToys.Logic;
@@ -29,7 +30,7 @@ namespace WingtipToys.Account {
 					usersShoppingCart.MigrateCart(cartId, user.UserName);
 				}
 
-					IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+				IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 			} else {
 				ErrorMessage.Text = result.Errors.FirstOrDefault();
 			}

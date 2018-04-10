@@ -40,13 +40,13 @@ namespace WingtipToys.Logic {
 			// Retrieve the product from the database
 			ShoppingCartId = GetCartId();
 
-			var cartItem = _db.ShoppingCartItems.SingleOrDefault(c => c.CartId == ShoppingCartId && c.Product.ProductName == productName);
+			var cartItem = _db.ShoppingCartItems.SingleOrDefault(c => c.CartId == ShoppingCartId && c.Product.Name == productName);
 			if (cartItem == null) {
 				// Create a new cart item if no cart item exists
 				cartItem = new CartItem {
 					ItemId = Guid.NewGuid().ToString(),
-					Product = _db.Products.SingleOrDefault(p => p.ProductName == productName),
-					ProductId = (_db.Products.SingleOrDefault(p => p.ProductName == productName)).ProductId,
+					Product = _db.Products.SingleOrDefault(p => p.Name == productName),
+					ProductId = (_db.Products.SingleOrDefault(p => p.Name == productName)).ProductId,
 					CartId = ShoppingCartId,
 					Quantity = 1,
 					DateCreated = DateTime.Now

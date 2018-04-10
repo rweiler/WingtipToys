@@ -9,9 +9,9 @@ namespace WingtipToys.Logic {
 
 		public bool AddProduct(string ProductName, string ProductDescription, string ProductPrice, string ProductCategory, string ProductImagePath) {
 			var myProduct = new Product() {
-				ProductName = ProductName,
+				Name = ProductName,
 				Description = ProductDescription,
-				UnitPrice = Convert.ToDouble(ProductPrice),
+				UnitPrice = Convert.ToDecimal(ProductPrice),
 				ImagePath = ProductImagePath,
 				CategoryId = Convert.ToInt32(ProductCategory)
 			};

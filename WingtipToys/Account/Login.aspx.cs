@@ -32,7 +32,6 @@ namespace WingtipToys.Account {
 
 				switch (result) {
 					case SignInStatus.Success:
-
 						// Migrate a cart the user may have created before logging into the application to checkout
 						using (var usersShoppingCart = new ShoppingCartActions()) {
 							string cartId = usersShoppingCart.GetCartId();
