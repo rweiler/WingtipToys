@@ -12,8 +12,8 @@
     <%: Scripts.Render("~/bundles/modernizr") %>
   </asp:PlaceHolder>
   <webopt:BundleReference runat="server" Path="~/Content/css" />
+  <asp:ContentPlaceHolder ID="injectedStyles" runat="server"></asp:ContentPlaceHolder>
   <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
   <form runat="server">
@@ -104,6 +104,8 @@
         <p>&copy; <%: DateTime.Now.Year %> - Wingtip Toys</p>
       </footer>
     </div>
+
+    <asp:ContentPlaceHolder ID="injectedScripts" runat="server"></asp:ContentPlaceHolder>
   </form>
 </body>
 </html>

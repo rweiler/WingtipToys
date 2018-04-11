@@ -3,27 +3,40 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
   <asp:FormView ID="productDetail" runat="server" ItemType="WingtipToys.Models.Product" SelectMethod="GetProduct" RenderOuterTable="false">
     <ItemTemplate>
-      <div>
-        <h1><%#: Item.Name %></h1>
+      <div class="row" style="margin-top: 40px;">
+        <div class="col-md-7">
+          <img src="/Catalog/Images/<%#: Item.ImagePath %>" style="width: 100%; height: auto;" alt="<%# Item.Name %>" />
+        </div>
+        <div class="col-md-5">
+          <h1><%#: Item.Name %></h1>
+          <div class="form-group">
+            <%#: Item.Description %>
+          </div>
+          <div class="form-group text-warning" style="font-size: 2.5rem;">
+            <strong><%#: $"{Item.UnitPrice:c2}" %></strong>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group float-label">
+                <asp:Label runat="server" AssociatedControlID="txtQuantity">Quantity</asp:Label>
+                <asp:TextBox ID="txtQuantity" runat="server" CssClass="form-control" MaxLength="3" TextMode="Number" min="1" max="999" placeholder="Quantity" />
+                <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtQuantity" CssClass="text-danger" Display="Dynamic">Enter a quantity</asp:RequiredFieldValidator>
+              </div>
+            </div>
+          </div>          
+          <div class="form-group">
+            <asp:LinkButton runat="server" CssClass="btn btn-primary" CommandName="AddToCart" CommandArgument="<%#: Item.ProductId %>">Add to Cart</asp:LinkButton>
+          </div>
+        </div>
       </div>
-      <br />
-      <table>
-        <tr>
-          <td>
-            <img src="/Catalog/Images/<%#: Item.ImagePath %>" style="border: solid; height: 300px;" alt="<%# Item.Name %>" />
-          </td>
-          <td>&nbsp;</td>
-          <td style="vertical-align: top; text-align: left;">
-            <b>Description:</b><br /><%#: Item.Description %>
-            <br />
-            <span><b>Price: </b><%#: string.Format("{0:c2}", Item.UnitPrice) %></span>
-            <br />
-            <span><b>Product Number: </b><%#: Item.ProductId %></span>
-            <br />
-            <a href="/AddToCart.aspx?productId=<%#: Item.ProductId %>">Add to Cart</a>
-          </td>
-        </tr>
-      </table>
     </ItemTemplate>
   </asp:FormView>
+</asp:Content>
+
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="injectedStyles">
+  <link rel="stylesheet" href="/Content/float-label.css" />
+</asp:Content>
+
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="injectedScripts">
+  <script src="/Scripts/float-label.js"></script>
 </asp:Content>

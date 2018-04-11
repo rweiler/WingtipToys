@@ -1,0 +1,39 @@
+﻿.float-label .form-control {
+	 height: 42px;
+	 padding-top: 20px;
+}
+
+.float-label select {
+	padding-top: 16px !important;
+	padding-left: 6px !important;
+}
+
+.float-label label {
+	font-size: .8125em;
+	position: absolute;
+	padding-left: 12px;
+	padding-top: 2px;
+	color: #003cff;
+	opacity: 1;
+	/*-webkit-transition: .333s ease top, .333s ease opacity;
+	transition: .333s ease top, .333s ease opacity;*/
+}
+
+.float-label input,
+.float-label textarea,
+.float-label select {
+	font-size: 1.15em;
+}
+
+.js-hide-label label {
+	opacity: 0;
+}
+
+.js-unhighlight-label label {
+	color: #ccc;
+}
+
+.float-label label {
+	-webkit-transition: .333s ease top, .333s ease opacity;
+	transition: .333s ease top, .333s ease opacity;
+}

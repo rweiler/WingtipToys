@@ -13,6 +13,15 @@ namespace WingtipToys {
     public partial class SiteMaster {
         
         /// <summary>
+        /// injectedStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder injectedStyles;
+        
+        /// <summary>
         /// liAdmin control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace WingtipToys {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        
+        /// <summary>
+        /// injectedScripts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder injectedScripts;
     }
 }
